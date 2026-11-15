@@ -1,39 +1,60 @@
-# Hackathon_Gradient
-# ⚡ VoltRelay Energy: Why Is Growth Not Turning Into Profit?
+# VoltRelay Energy | EV Battery Swapping Network Analytics
 
-Analysis of ~3.9M battery swaps across 6 Indian cities (Jan 2024 to Jun 2025).
-Built for the Gradient Learnings Data Analytics Hackathon.
+## Project Overview
 
-## Problem
-Swaps and revenue are growing, but failures are rising faster, new riders are leaving, and profit per swap is shrinking. Leadership doesn't know why or where to invest.
+**Can an EV battery-swapping network scale its operations without compromising service reliability and profitability?**
 
-## What I Did
-- Cleaned 8 datasets: firmware timestamp bug, duplicate swaps, test stations, city spellings, bad sensor readings, missing telemetry
-- Built KPIs with clear formulas: revenue, margin per swap, failure rate, queue time, retention
-- Found where failures are concentrated (stations, hours, equipment)
-- Tested the pricing pilot with difference-in-differences
-- Analysed new-rider churn with cohorts and regression
+This project analyses approximately **3.9 million simulated battery-swapping events** across six Indian cities to evaluate the operational performance, battery health, customer experience, and unit economics of VoltRelay Energy.
+
+The objective was to move beyond descriptive reporting and identify operational inefficiencies, investigate their possible causes, and translate data into actionable business recommendations.
+
+## Business Problems
+
+The analysis focuses on five key business questions:
+
+- Which stations contribute disproportionately to service failures?
+- How do vehicle categories and city locations affect swap reliability?
+- Are battery suppliers delivering consistent battery quality?
+- What is the relationship between battery health and operational performance?
+- Is network growth translating into improved contribution margins?
 
 ## Key Findings
-1. Swaps grew [X]x, but margin per swap changed [±X%].
-2. Failure rate rose from [X%] to [Y%]; the worst 10% of stations cause [X%] of failures.
-3. Churn is most linked to [factor].
-4. The largest fleet partner ranks #[X] by revenue but #[Y] by margin.
 
-## Recommendation
-1. Fix reliability at busy stations first
-2. Add batteries only where stockouts are proven
-3. Roll out pricing only if the pilot supports it
-4. Don't sign the exclusive fleet deal until its margin beats [benchmark]
+| Business Area | Key Finding |
+|---|---|
+| Service Reliability | Failure rates increased from **3.98% to 7.86%** between the first and last three months. |
+| Station Performance | The worst-performing 10% of stations accounted for **22.6% of service failures**, despite handling only 15.2% of attempts. |
+| Vehicle Category | Three-wheelers recorded a **9.95% failure rate**, compared with 5.02% for two-wheelers. |
+| Battery Quality | Kyron batteries showed approximately **9.48 SOH percentage points of degradation per 100 cycles**, compared with around 3.02–3.03 for other suppliers. |
+| Unit Economics | CM2 per completed swap increased by **93.2%** across the first-three-month and last-three-month comparison periods. |
 
-## Run It
-```bash
-pip install pandas numpy matplotlib seaborn scipy statsmodels jupyter
-jupyter notebook voltrelay_analysis.ipynb
-```
-Put the 8 data files in `./data` and set `DATA_DIR` in the first cell.
+## Business Recommendations
 
-## Note
-Data is synthetic and observational, so results show association, not proven cause. Data files are not included in this repo.
+1. Prioritise high-demand stations with consistently poor service reliability before expanding the network.
+2. Introduce supplier-level battery quality monitoring and investigate faster battery degradation.
+3. Improve inventory planning to reduce battery stockouts.
+4. Evaluate pricing changes through controlled analysis before implementing network-wide changes.
+5. Assess fleet partnerships using contribution margin rather than revenue alone.
 
-**Author:** Mrinalini Tripathi
+## Technical Approach
+
+- Data cleaning, preprocessing and validation
+- Exploratory Data Analysis (EDA)
+- Relational data integration across eight datasets
+- Station and city performance analysis
+- Battery degradation and supplier comparison
+- Contribution margin analysis (CM1, CM2 and CM3)
+- Statistical testing and time-series analysis
+- Business recommendations based on analytical findings
+
+## Technology Stack
+
+**Python | Pandas | NumPy | SciPy | Statsmodels | Matplotlib | Seaborn | Jupyter Notebook**
+
+## Project Outcome
+
+The project demonstrates how large-scale operational data can be converted into business intelligence. Instead of treating growth as the only success metric, the analysis highlights the importance of service reliability, battery quality, operational efficiency and sustainable unit economics.
+
+**Core takeaway:** Scaling a network is not enough. A business must understand where performance is breaking down and where investment can create the greatest operational improvement.
+
+*Note: The dataset is synthetic and represents a simulated battery-swapping network. Findings describe the dataset and should not be interpreted as actual VoltRelay business results.*
